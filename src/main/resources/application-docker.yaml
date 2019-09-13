@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    database: POSTGRESQL
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://db/postgres
+    username: postgres
+    password: docker
+    driverClassName: org.postgresql.Driver
