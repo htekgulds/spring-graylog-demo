@@ -32,4 +32,5 @@ public interface ProjeController {
 
 	@DeleteMapping("/{id}")
 	ResponseEntity<?> deleteProje(@PathVariable Long id) throws Exception;
+	
 }
