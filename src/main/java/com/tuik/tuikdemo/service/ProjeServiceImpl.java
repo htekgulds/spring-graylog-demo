@@ -21,12 +21,14 @@ public class ProjeServiceImpl implements ProjeService {
 	ProjeMapper projeMapper;
 
 	@Override
+	@Transactional(readOnly = false)
 	public void createProje(ProjeDTO projeDTO) {
 
 		projeRepo.save(projeMapper.toProje(projeDTO));
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public void deleteProje(Long id) {
 
 		Proje proje = projeRepo.findById(id).orElseThrow(() -> new TuikException());
@@ -34,6 +36,7 @@ public class ProjeServiceImpl implements ProjeService {
 	}
 
 	@Override
+	@Transactional(readOnly = false)
 	public ProjeDTO updateProje(ProjeDTO projeDTO) {
 
 		Proje proje = projeRepo.findById(projeDTO.getId()).orElseThrow(() -> new TuikException());
@@ -44,6 +47,7 @@ public class ProjeServiceImpl implements ProjeService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public ProjeDTO getProje(Long id) {
 
 		Proje proje = projeRepo.findById(id).orElseThrow(() -> new TuikException());
@@ -51,6 +55,7 @@ public class ProjeServiceImpl implements ProjeService {
 	}
 
 	@Override
+	@Transactional(readOnly = true)
 	public List<ProjeDTO> projeList() {
 
 		List<ProjeDTO> projeDTO = projeMapper.toProjeDTOs(projeRepo.findAll());
