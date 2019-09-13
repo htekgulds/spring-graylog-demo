@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  api:
+    image: reg.docker.tuik.gov.tr/tuik/demoapi
+    networks:
+      - traefik
+      - local
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    deploy:
+      labels:
+        traefik.port: '8080'
+        traefik.docker.network: traefik
+        traefik.backend: tuik-demo-api
+        traefik.frontend.rule: Host:demoapi.docker.tuik.gov.tr
+
+  db:
+    image: reg.docker.tuik.gov.tr/postgres:11-alpine
+    networks:
+      - local
+    deploy:
+      labels:
+        traefik.enable: 'false'
+
+networks:
+  traefik:
+    external: true
+  local:
+    external: false
