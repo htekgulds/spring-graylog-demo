@@ -1,4 +1,4 @@
-package com.tuik.tuikdemo;
+package com.tuik.tuikdemo.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

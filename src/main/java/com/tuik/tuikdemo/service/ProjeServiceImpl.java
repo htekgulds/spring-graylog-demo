@@ -4,8 +4,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.tuik.exception.TuikException;
+
 import com.tuik.tuikdemo.dto.ProjeDTO;
+import com.tuik.tuikdemo.exception.TuikException;
 import com.tuik.tuikdemo.mapper.ProjeMapper;
 import com.tuik.tuikdemo.model.Proje;
 import com.tuik.tuikdemo.repository.ProjeRepository;

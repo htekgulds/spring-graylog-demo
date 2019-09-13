@@ -1,4 +1,4 @@
-package com.tuik.exception;
+package com.tuik.tuikdemo.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

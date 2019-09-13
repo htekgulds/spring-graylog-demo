@@ -1,4 +1,4 @@
-package com.tuik.config;
+package com.tuik.tuikdemo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

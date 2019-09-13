@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import com.tuik.tuikdemo.dto.ProjeDTO;
 import com.tuik.tuikdemo.repository.ProjeRepository;
 import com.tuik.tuikdemo.service.ProjeService;
-import com.tuik.util.ApiResponse;
+import com.tuik.tuikdemo.util.ApiResponse;
 
 @Controller
 public class ProjeControllerImpl implements ProjeController {

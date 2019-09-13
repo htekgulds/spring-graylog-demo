@@ -1,4 +1,4 @@
-package com.tuik.util;
+package com.tuik.tuikdemo.util;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
