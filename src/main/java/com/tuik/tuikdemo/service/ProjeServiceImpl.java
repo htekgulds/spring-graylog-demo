@@ -22,9 +22,16 @@ public class ProjeServiceImpl implements ProjeService {
 
 	@Override
 	@Transactional(readOnly = false)
-	public void createProje(ProjeDTO projeDTO) {
+	public void createUpdateProje(ProjeDTO projeDTO) {
 
-		projeRepo.save(projeMapper.toProje(projeDTO));
+		if (projeDTO.getId() != null) {
+			Proje proje = projeRepo.findById(projeDTO.getId()).orElseThrow(() -> new TuikException());
+			proje.setAd(projeDTO.getAd());
+			proje.setSema(projeDTO.getSema());
+			projeRepo.save(proje);
+		} else {
+			projeRepo.save(projeMapper.toProje(projeDTO));
+		}
 	}
 
 	@Override
@@ -33,17 +40,6 @@ public class ProjeServiceImpl implements ProjeService {
 
 		Proje proje = projeRepo.findById(id).orElseThrow(() -> new TuikException());
 		projeRepo.delete(proje);
-	}
-
-	@Override
-	@Transactional(readOnly = false)
-	public ProjeDTO updateProje(ProjeDTO projeDTO) {
-
-		Proje proje = projeRepo.findById(projeDTO.getId()).orElseThrow(() -> new TuikException());
-		proje.setAd(projeDTO.getAd());
-		proje.setSema(projeDTO.getSema());
-		projeRepo.save(proje);
-		return projeDTO;
 	}
 
 	@Override

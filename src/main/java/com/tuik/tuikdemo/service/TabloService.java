@@ -5,11 +5,9 @@ import com.tuik.tuikdemo.dto.TabloDTO;
 
 public interface TabloService {
 
-	public void createTablo(TabloDTO tabloDTO);
+	public void createUpdateTablo(TabloDTO tabloDTO);
 
 	public void deleteTablo(Long id);
-
-	public TabloDTO updateTablo(TabloDTO tabloDTO);
 
 	public TabloDTO getTablo(Long id);
 

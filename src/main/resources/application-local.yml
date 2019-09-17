@@ -1,0 +1,22 @@
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: true
+      
+  datasource:
+   driverClassName: org.postgresql.Driver
+   url: jdbc:postgresql://10.5.23.19:5432/postgres
+   username: postgres
+   password: docker
+   
+   
+logging:
+  file: logfile.log
+  level:
+    org.hibernate.SQL: DEBUG

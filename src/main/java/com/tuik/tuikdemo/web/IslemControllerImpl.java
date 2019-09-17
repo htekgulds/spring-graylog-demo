@@ -17,10 +17,10 @@ public class IslemControllerImpl implements IslemController {
 	IslemService islemService;
 
 	@Override
-	public ResponseEntity<?> createIslem(@Valid IslemDTO islemDTO) throws Exception {
+	public ResponseEntity<?> createUpdateIslem(@Valid IslemDTO islemDTO) throws Exception {
 
-		islemService.createIslem(islemDTO);
-		return ResponseEntity.ok(new ApiResponse(true, "Ekleme başarılı"));
+		islemService.createUpdateIslem(islemDTO);
+		return ResponseEntity.ok(new ApiResponse(true, "İşlem başarılı"));
 	}
 
 	@Override
@@ -33,12 +33,6 @@ public class IslemControllerImpl implements IslemController {
 	public ResponseEntity<?> getIslemList() throws Exception {
 
 		return new ResponseEntity<>(islemService.islemList(), HttpStatus.OK);
-	}
-
-	@Override
-	public ResponseEntity<?> updateIslem(@Valid IslemDTO islemDTO) throws Exception {
-
-		return new ResponseEntity<>(islemService.updateIslem(islemDTO), HttpStatus.OK);
 	}
 
 	@Override

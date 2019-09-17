@@ -18,10 +18,10 @@ public class TabloControllerImpl implements TabloController {
 	TabloService tabloService;
 
 	@Override
-	public ResponseEntity<?> createTablo(@Valid TabloDTO tabloDTO) throws Exception {
+	public ResponseEntity<?> createUpdateTablo(@Valid TabloDTO tabloDTO) throws Exception {
 
-		tabloService.createTablo(tabloDTO);
-		return ResponseEntity.ok(new ApiResponse(true, "Ekleme başarılı"));
+		tabloService.createUpdateTablo(tabloDTO);
+		return ResponseEntity.ok(new ApiResponse(true, "İşlem başarılı"));
 	}
 
 	@Override
@@ -34,12 +34,6 @@ public class TabloControllerImpl implements TabloController {
 	public ResponseEntity<?> getTabloList() throws Exception {
 
 		return new ResponseEntity<>(tabloService.tabloList(), HttpStatus.OK);
-	}
-
-	@Override
-	public ResponseEntity<?> updateTablo(@Valid TabloDTO tabloDTO) throws Exception {
-
-		return new ResponseEntity<>(tabloService.updateTablo(tabloDTO), HttpStatus.OK);
 	}
 
 	@Override

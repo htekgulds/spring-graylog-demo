@@ -3,9 +3,11 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: update
+  profiles:
+        active: local
 
-  datasource:
-    driverClassName: org.h2.Driver
+#  datasource:
+#    driverClassName: org.h2.Driver
 
 logging:
   file: logfile.log

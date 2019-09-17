@@ -1,7 +1,6 @@
 package com.tuik.tuikdemo.web;
 
 import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +9,7 @@ import com.tuik.tuikdemo.dto.ProjeDTO;
 import com.tuik.tuikdemo.repository.ProjeRepository;
 import com.tuik.tuikdemo.service.ProjeService;
 import com.tuik.tuikdemo.util.ApiResponse;
+import io.swagger.annotations.ApiModelProperty;
 
 @Controller
 public class ProjeControllerImpl implements ProjeController {
@@ -21,10 +21,11 @@ public class ProjeControllerImpl implements ProjeController {
 	ProjeRepository projeRepo;
 
 	@Override
-	public ResponseEntity<?> createProje(@Valid ProjeDTO projeDTO) throws Exception {
+	@ApiModelProperty(value = "")
+	public ResponseEntity<?> createUpdateProje(@Valid ProjeDTO projeDTO) throws Exception {
 
-		projeService.createProje(projeDTO);
-		return ResponseEntity.ok(new ApiResponse(true, "Ekleme başarılı"));
+		projeService.createUpdateProje(projeDTO);
+		return ResponseEntity.ok(new ApiResponse(true, "İşlem başarılı"));
 	}
 
 	@Override
@@ -37,12 +38,6 @@ public class ProjeControllerImpl implements ProjeController {
 	public ResponseEntity<?> getProjeList() throws Exception {
 
 		return new ResponseEntity<>(projeService.projeList(), HttpStatus.OK);
-	}
-
-	@Override
-	public ResponseEntity<?> updateProje(@Valid ProjeDTO projeDTO) throws Exception {
-
-		return new ResponseEntity<>(projeService.updateProje(projeDTO), HttpStatus.OK);
 	}
 
 	@Override

@@ -28,9 +28,26 @@ public class IslemServiceImpl implements IslemService {
 
 	@Override
 	@Transactional(readOnly = false)
-	public void createIslem(IslemDTO islemDTO) {
+	public void createUpdateIslem(IslemDTO islemDTO) {
 
-		islemRepo.save(islemMapper.toIslem(islemDTO));
+		if (islemDTO.getId() != null) {
+			Islem islem = islemRepo.findById(islemDTO.getId()).orElseThrow(() -> new TuikException());
+			islem.setAd(islemDTO.getAd());
+			if (islemDTO.getProjeId() != null) {
+				Proje proje = projeRepo.findById(islemDTO.getProjeId()).orElseThrow(() -> new TuikException());
+				islem.setProje(proje);
+			}
+			islemRepo.save(islem);
+		} else {
+			if (islemDTO.getProjeId() != null) {
+				Proje proje = projeRepo.findById(islemDTO.getProjeId()).orElseThrow(() -> new TuikException());
+				Islem islem = islemMapper.toIslem(islemDTO);
+				islem.setProje(proje);
+				islemRepo.save(islem);
+			} else {
+				throw new TuikException();
+			}
+		}
 	}
 
 	@Override
@@ -39,18 +56,6 @@ public class IslemServiceImpl implements IslemService {
 
 		Islem islem = islemRepo.findById(id).orElseThrow(() -> new TuikException());
 		islemRepo.delete(islem);
-	}
-
-	@Override
-	@Transactional(readOnly = false)
-	public IslemDTO updateIslem(IslemDTO islemDTO) {
-
-		Islem islem = islemRepo.findById(islemDTO.getId()).orElseThrow(() -> new TuikException());
-		Proje proje = projeRepo.findById(islemDTO.getProjeId()).orElseThrow(() -> new TuikException());
-		islem.setAd(islemDTO.getAd());
-		islem.setProje(proje);
-		islemRepo.save(islem);
-		return islemDTO;
 	}
 
 	@Override

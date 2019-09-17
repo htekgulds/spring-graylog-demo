@@ -5,11 +5,9 @@ import com.tuik.tuikdemo.dto.ProjeDTO;
 
 public interface ProjeService {
 
-	public void createProje(ProjeDTO projeDTO);
+	public void createUpdateProje(ProjeDTO projeDTO);
 
 	public void deleteProje(Long id);
-
-	public ProjeDTO updateProje(ProjeDTO projeDTO);
 
 	public ProjeDTO getProje(Long id);
 

@@ -27,9 +27,28 @@ public class TabloServiceImpl implements TabloService {
 
 	@Override
 	@Transactional(readOnly = false)
-	public void createTablo(TabloDTO tabloDTO) {
+	public void createUpdateTablo(TabloDTO tabloDTO) {
 
-		tabloRepo.save(tabloMapper.toTablo(tabloDTO));
+		if (tabloDTO.getId() != null) {
+			Tablo tablo = tabloRepo.findById(tabloDTO.getId()).orElseThrow(() -> new TuikException());
+			tablo.setAd(tabloDTO.getAd());
+			tablo.setSil(tabloDTO.isSil());
+			tablo.setGuncelle(tabloDTO.isGuncelle());
+			if (tabloDTO.getIslemId() != null) {
+				Islem islem = islemRepo.findById(tabloDTO.getIslemId()).orElseThrow(() -> new TuikException());
+				tablo.setIslem(islem);
+			}
+			tabloRepo.save(tablo);
+		} else {
+			if (tabloDTO.getIslemId() != null) {
+				Islem islem = islemRepo.findById(tabloDTO.getIslemId()).orElseThrow(() -> new TuikException());
+				Tablo tablo = tabloMapper.toTablo(tabloDTO);
+				tablo.setIslem(islem);
+				tabloRepo.save(tablo);
+			} else {
+				throw new TuikException();
+			}
+		}
 	}
 
 	@Override
@@ -38,20 +57,6 @@ public class TabloServiceImpl implements TabloService {
 
 		Islem islem = islemRepo.findById(id).orElseThrow(() -> new TuikException());
 		islemRepo.delete(islem);
-	}
-
-	@Override
-	@Transactional(readOnly = false)
-	public TabloDTO updateTablo(TabloDTO tabloDTO) {
-
-		Tablo tablo = tabloRepo.findById(tabloDTO.getId()).orElseThrow(() -> new TuikException());
-		Islem islem = islemRepo.findById(tabloDTO.getIslemId()).orElseThrow(() -> new TuikException());
-		tablo.setAd(tabloDTO.getAd());
-		tablo.setSil(tabloDTO.isSil());
-		tablo.setGuncelle(tabloDTO.isGuncelle());
-		tablo.setIslem(islem);
-		islemRepo.save(islem);
-		return tabloDTO;
 	}
 
 	@Override

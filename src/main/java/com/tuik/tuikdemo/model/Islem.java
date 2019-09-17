@@ -42,9 +42,9 @@ public class Islem implements Serializable {
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "islem", targetEntity = Tablo.class, cascade = CascadeType.ALL)
 	private Set<Tablo> tablo;
 
-	@JsonIgnore()
+	//@JsonIgnore()
 	@ManyToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "proje_Id")
+	@JoinColumn(name = "proje_id")
 	private Proje proje;
 
 }

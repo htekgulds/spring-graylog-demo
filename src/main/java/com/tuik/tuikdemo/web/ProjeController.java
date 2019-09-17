@@ -7,11 +7,9 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.tuik.tuikdemo.dto.ProjeDTO;
 
 @RestController
@@ -19,7 +17,7 @@ import com.tuik.tuikdemo.dto.ProjeDTO;
 public interface ProjeController {
 
 	@PostMapping
-	ResponseEntity<?> createProje(@Valid @RequestBody ProjeDTO projeDTO) throws Exception;
+	ResponseEntity<?> createUpdateProje(@Valid @RequestBody ProjeDTO projeDTO) throws Exception;
 
 	@GetMapping("/{id}")
 	ResponseEntity<?> getProje(@PathVariable Long id) throws Exception;
@@ -27,10 +25,7 @@ public interface ProjeController {
 	@GetMapping
 	ResponseEntity<?> getProjeList() throws Exception;
 
-	@PutMapping
-	ResponseEntity<?> updateProje(@Valid @RequestBody ProjeDTO projeDTO) throws Exception;
-
 	@DeleteMapping("/{id}")
 	ResponseEntity<?> deleteProje(@PathVariable Long id) throws Exception;
-	
+
 }
