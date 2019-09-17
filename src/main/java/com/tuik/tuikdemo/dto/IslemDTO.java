@@ -22,7 +22,7 @@ public class IslemDTO {
 	private String ad;
 
 	private Long projeId;
-		
+
 	@ApiModelProperty(hidden = true)
 	private List<TabloDTO> tabloDTO = new ArrayList<>();
 }

@@ -14,13 +14,13 @@ import lombok.ToString;
 public class TabloDTO {
 
 	private Long id;
-	
+
 	private String ad;
-	
+
 	private boolean guncelle;
-	
+
 	private boolean sil;
-	
+
 	private Long islemId;
-	
+
 }
