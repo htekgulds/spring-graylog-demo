@@ -17,6 +17,6 @@ spring:
    
    
 logging:
-  file: logfile.log
+  file: application.log
   level:
     org.hibernate.SQL: DEBUG

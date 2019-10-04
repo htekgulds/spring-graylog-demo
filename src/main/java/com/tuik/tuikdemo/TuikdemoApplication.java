@@ -7,7 +7,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class TuikdemoApplication {
 
 	public static void main(String[] args) {
+		
 		SpringApplication.run(TuikdemoApplication.class, args);
+		
 	}
 
 }

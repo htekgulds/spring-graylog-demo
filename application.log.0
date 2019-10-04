@@ -1,0 +1,4 @@
+[2019-10-04 10:45:29.438] - 7509 INFO [restartedMain] --- org.apache.catalina.core.StandardService: Starting service [Tomcat]
+[2019-10-04 10:45:29.446] - 7509 INFO [restartedMain] --- org.apache.catalina.core.StandardEngine: Starting Servlet engine: [Apache Tomcat/9.0.22]
+[2019-10-04 10:45:29.510] - 7509 INFO [restartedMain] --- org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/]: Initializing Spring embedded WebApplicationContext
+[2019-10-04 10:45:31.890] - 7509 INFO [restartedMain] --- org.apache.catalina.core.StandardService: Stopping service [Tomcat]

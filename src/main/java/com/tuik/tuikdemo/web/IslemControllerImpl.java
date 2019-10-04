@@ -5,12 +5,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-
 import com.tuik.tuikdemo.dto.IslemDTO;
 import com.tuik.tuikdemo.service.IslemService;
 import com.tuik.tuikdemo.util.ApiResponse;
+import lombok.extern.log4j.Log4j;
+
+
 
 @Controller
+@Log4j
 public class IslemControllerImpl implements IslemController {
 
 	@Autowired
@@ -18,7 +21,8 @@ public class IslemControllerImpl implements IslemController {
 
 	@Override
 	public ResponseEntity<?> createUpdateIslem(@Valid IslemDTO islemDTO) throws Exception {
-
+		
+		log.info("XXXXXXXXX");
 		islemService.createUpdateIslem(islemDTO);
 		return ResponseEntity.ok(new ApiResponse(true, "İşlem başarılı"));
 	}

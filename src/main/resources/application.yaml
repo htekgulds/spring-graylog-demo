@@ -9,7 +9,7 @@ spring:
 #  datasource:
 #    driverClassName: org.h2.Driver
 
-logging:
-  file: logfile.log
-  level:
-    org.hibernate.SQL: DEBUG
+#logging:
+#  file: logfile.log
+#  level:
+#    org.hibernate.SQL: DEBUG
